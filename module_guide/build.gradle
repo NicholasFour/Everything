@@ -1,6 +1,6 @@
-if (rootProject.ext.moduleGuide){
+if (rootProject.ext.moduleGuide) {
     apply plugin: 'com.android.application'
-}else {
+} else {
     apply plugin: 'com.android.library'
 }
 android {
@@ -14,12 +14,11 @@ android {
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-
         //Arouter路由配置
         javaCompileOptions {
             annotationProcessorOptions {
 
-                arguments = [moduleName: project.getName()]
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
 
@@ -54,6 +53,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':component_base')
+    //Arouter路由
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    implementation project(':component_base')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
 }

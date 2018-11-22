@@ -20,6 +20,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven { url "https://clojars.org/repo/" }//icepick配置
+        maven { url "https://jitpack.io" }
     }
 }
 

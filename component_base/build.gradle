@@ -11,10 +11,14 @@ android {
         versionName rootProject.ext.android.versionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //MultiDex分包方法
+        multiDexEnabled true
+
         //Arouter路由配置
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
     }
@@ -40,5 +44,72 @@ dependencies {
     api rootProject.ext.dependencies["design"]
     api rootProject.ext.dependencies["support_annotations"]
 
+    //MultiDex分包方法
+    api rootProject.ext.dependencies["multidex"]
 
+    //Arouter路由
+    api rootProject.ext.dependencies["arouter_api"]
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+
+    //网络
+    api rootProject.ext.dependencies["retrofit2"]
+    api rootProject.ext.dependencies["converter-gson"]
+    api rootProject.ext.dependencies["adapter-rxjava2"]
+    api rootProject.ext.dependencies["rxjava2:rxandroid"]
+    api rootProject.ext.dependencies["rxjava2"]
+    api rootProject.ext.dependencies["logging-interceptor"]
+
+    //日志
+    api rootProject.ext.dependencies["logger"]
+
+    //仿ios进度条
+    api rootProject.ext.dependencies["kprogresshud"]
+
+    //6.0权限
+    api rootProject.ext.dependencies["rxpermissions"]
+
+    //baseadapter
+    api rootProject.ext.dependencies["baseRecyclerViewAdapterHelper"]
+
+    //图片
+    api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["glide:okhttp3"]
+
+    //图片选择器 导致夜神在模拟器打不开
+    api rootProject.ext.dependencies["PictureSelector"]
+
+    //图片缩放,View Pager中浏览库
+    api rootProject.ext.dependencies["photoview"]
+
+    //上拉加载
+    api rootProject.ext.dependencies["smartRefreshLayout"]
+    //没有特殊的样式需求,可不加
+    // api rootProject.ext.dependencies["SmartRefreshHeader"]
+
+    //eventbus 发布/订阅事件总线
+    api rootProject.ext.dependencies["eventbus"]
+
+    //banner轮播图
+    api rootProject.ext.dependencies["banner"]
+
+    //沉浸式状态栏
+    api rootProject.ext.dependencies["statusbarutil"]
+
+    //RecyclerView万能适配器
+    api rootProject.ext.dependencies["baseRecyclerViewAdapterHelper"]
+
+    //安卓调试神器-Stetho
+    api rootProject.ext.dependencies["stetho"]
+    api rootProject.ext.dependencies["stetho-okhttp3"]
+
+    //greendao3
+    api rootProject.ext.dependencies["greendao3"]
+
+    //二维码扫描
+    api rootProject.ext.dependencies["zxing"]
+
+    //leakcanary-android
+    debugImplementation rootProject.ext.dependencies["leakcanary-android"]
+    //release不检测
+    releaseImplementation rootProject.ext.dependencies["leakcanary-android-no-op"]
 }

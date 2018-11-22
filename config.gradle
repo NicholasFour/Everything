@@ -1,11 +1,11 @@
 /*全局配置信息及第三方依赖统一管理*/
-ext{
-    isModule=false
-    moduleGuide=false
+ext {
+    isModule = false
+    moduleGuide = false
 
     android = [
             compileSdkVersion       : 28,
-            buildToolsVersion       : '28.0.0',
+            buildToolsVersion       : '28.0.3',
             minSdkVersion           : 17,
             targetSdkVersion        : 23,
             versionCode             : 1,
@@ -16,22 +16,88 @@ ext{
 
     ]
 
-    dependencies = ["appcompat_v7"                   : "com.android.support:appcompat-v7:${android["androidSupportSdkVersion"]}",
-                    "constraint_layout"              : 'com.android.support.constraint:constraint-layout:1.1.3',
-                    "runner"                         : 'com.android.support.test:runner:1.0.2',
-                    "espresso_core"                  : 'com.android.support.test.espresso:espresso-core:3.0.2',
-                    "junit"                          : 'junit:junit:4.12',
-                    "support_annotations"            : 'com.android.support:support-annotations:24.0.0',
-                    "design"                         : "com.android.support:design:${android["androidSupportSdkVersion"]}",
-                    "support-v4"                     : "com.android.support:support-v4:${android["androidSupportSdkVersion"]}",
-                    "cardview-v7"                    : "com.android.support:cardview-v7:${android["androidSupportSdkVersion"]}",
-                    "recyclerview-v7"                : "com.android.support:recyclerview-v7:${android["androidSupportSdkVersion"]}",
+    dependencies = ["appcompat_v7"                 : "com.android.support:appcompat-v7:${android["androidSupportSdkVersion"]}",
+                    "constraint_layout"            : 'com.android.support.constraint:constraint-layout:1.1.3',
+                    "runner"                       : 'com.android.support.test:runner:1.0.2',
+                    "espresso_core"                : 'com.android.support.test.espresso:espresso-core:3.0.2',
+                    "junit"                        : 'junit:junit:4.12',
+                    "support_annotations"          : 'com.android.support:support-annotations:24.0.0',
+                    "design"                       : "com.android.support:design:${android["androidSupportSdkVersion"]}",
+                    "support-v4"                   : "com.android.support:support-v4:${android["androidSupportSdkVersion"]}",
+                    "cardview-v7"                  : "com.android.support:cardview-v7:${android["androidSupportSdkVersion"]}",
+                    "recyclerview-v7"              : "com.android.support:recyclerview-v7:${android["androidSupportSdkVersion"]}",
 
-
+                    //方法数超过65535解决方法64K MultiDex分包方法
+                    "multidex"                       : 'com.android.support:multidex:1.0.2',
 
                     //路由
-                    "arouter_api"                    : 'com.alibaba:arouter-api:1.2.4',
-                    "arouter_compiler"               : 'com.alibaba:arouter-compiler:1.2.2',
-                    "arouter_annotation"             : 'com.alibaba:arouter-annotation:1.0.4',
-            ]
+                    "arouter_api"                  : 'com.alibaba:arouter-api:1.4.1',
+                    "arouter_compiler"             : 'com.alibaba:arouter-compiler:1.2.2',
+                    "arouter_annotation"           : 'com.alibaba:arouter-annotation:1.0.4',
+
+                    //网络
+                    //retrofit2包含okhttp
+                    //"okhttp3"                       : 'com.squareup.okhttp3:okhttp:3.9.0',
+                    "retrofit2"                    : 'com.squareup.retrofit2:retrofit:2.3.0',
+                    "converter-gson"               : 'com.squareup.retrofit2:converter-gson:2.3.0',
+                    "adapter-rxjava2"              : 'com.squareup.retrofit2:adapter-rxjava2:2.3.0',
+                    "rxjava2:rxandroid"            : 'io.reactivex.rxjava2:rxandroid:2.0.1',
+                    "rxjava2"                      : 'io.reactivex.rxjava2:rxjava:2.1.5',
+                    //日志拦截器
+                    "logging-interceptor"          : 'com.squareup.okhttp3:logging-interceptor:3.8.1',
+
+                    //日志
+                    "logger"                       : 'com.orhanobut:logger:2.2.0',
+
+                    //图片
+                    "glide"                        : 'com.github.bumptech.glide:glide:4.5.0',
+                    "glide:okhttp3"                : 'com.github.bumptech.glide:okhttp3-integration:4.5.0',
+
+                    //图片选择器
+                    "PictureSelector"              : 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3',
+
+                    //图片缩放
+                    "photoview"                    : 'com.github.chrisbanes.photoview:library:1.2.4',
+
+                    //SmartRefreshLayout(刷新加载框架)
+                    "smartRefreshLayout"           : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1',
+                    "SmartRefreshHeader"           : 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1',
+
+                    //banner
+                    "banner"                       : 'com.youth.banner:banner:1.4.10',
+
+                    //eventbus
+                    "eventbus"                     : 'org.greenrobot:eventbus:3.0.0',
+
+                    //baseRecyclerViewAdapterHelper
+                    "baseRecyclerViewAdapterHelper": 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22',
+
+                    //greendao
+                    "greendao3"                    : 'org.greenrobot:greendao:3.2.2',
+
+                    //仿ios进度条 已抽取到lib中
+                    "kprogresshud"                   : 'com.kaopiz:kprogresshud:1.1.0',
+
+                    //弹窗管理
+                    "material-dialogs"             : 'com.afollestad.material-dialogs:core:2.0.0-rc1',
+
+                    //zxing
+                    "zxing"                        : 'cn.yipianfengye.android:zxing-library:2.2',
+
+                    //权限管理
+                    "rxpermissions"                : 'com.github.tbruyelle:rxpermissions:0.10.2',
+
+                    //沉浸状态栏
+                    "statusbarutil"                : 'com.jaeger.statusbarutil:library:1.5.1',
+
+                    //安卓调试神器-Stetho
+                    "stetho"                       : 'com.facebook.stetho:stetho:1.5.0',
+                    "stetho-okhttp3"               : 'com.facebook.stetho:stetho-okhttp3:1.5.0',
+
+                    //leakcanary内存泄露
+                    "leakcanary-android"           : "com.squareup.leakcanary:leakcanary-android:1.5.4",
+                    "leakcanary-android-no-op"     : "com.squareup.leakcanary:leakcanary-android-no-op:1.5.4",
+
+
+    ]
 }
