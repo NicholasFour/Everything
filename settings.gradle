@@ -1,1 +1,1 @@
-include ':app', ':module_guide', ':component_base'
+include ':app', ':module_guide', ':component_base', ':module_sign_in'

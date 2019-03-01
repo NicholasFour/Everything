@@ -10,6 +10,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hello word"/>
+        android:text="hello word splash"/>
 
+    <Button
+        android:onClick="open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="test_Jump"/>
 </LinearLayout>

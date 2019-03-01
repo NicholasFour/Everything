@@ -1,9 +1,9 @@
 /*全局配置信息及第三方依赖统一管理*/
 ext {
-    /*isModule = true
-    moduleGuide = true*/
-    isModule = false
-    moduleGuide = false
+    isModule = true
+    moduleGuide = true
+   /* isModule = false
+    moduleGuide = false*/
 
     android = [
             compileSdkVersion       : 28,
